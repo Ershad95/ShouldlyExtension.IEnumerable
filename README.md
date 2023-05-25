@@ -48,10 +48,14 @@ more examples for assert :
     // Assert that the last item in the list is equivalent to a given object
     people.ShouldBeEquivalentToLastItem(new Person { Name = "Charlie", Age = 35 });
 </pre>
-with order : 
+with desc order : 
 <pre>
  // Assert that the last item in the list, after being sorted by age, is equivalent to a given object
     people.ShouldBeEquivalentToLastItem(x => x.Age, new Person { Name = "Charlie", Age = 35 }, OrderType.Descending);
-        // Assert that the first item in the list, after being sorted by name, is equivalent to a given object
+</pre>
+with asce order : 
+<pre>
+  // Assert that the first item in the list, after being sorted by name, is equivalent to a given object
     people.ShouldBeEquivalentToFirstItem(x => x.Name, new Person { Name = "Alice", Age = 25 }, OrderType.Ascending);
 </pre>
+
