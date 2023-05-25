@@ -14,6 +14,7 @@ ShouldBeEquivalentToFirstItem<TInput, TKey>: This method asserts that the first 
 In addition, these methods can raise a NullReferenceException if the collection is empty.
 Here's an example of how to use ShouldlyExtension.Aggregates:
 
+### note: It is compatible with Shouldly version 4.0.0 or higher.
 <pre>
 public class MyClass
 {
