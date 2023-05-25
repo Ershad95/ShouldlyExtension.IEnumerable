@@ -22,7 +22,8 @@ namespace ShouldlyExtension.Aggregates
             this IEnumerable<TInput> enumerable,
             Func<TInput, TKey> orderBy,
             TInput input,
-            OrderType orderType = OrderType.Ascending)
+            OrderType orderType = OrderType.Ascending,
+            string customErrorMessage = null)
         {
             var inputs = enumerable as TInput[] ?? enumerable.ToArray();
             if (!inputs.Any())
@@ -35,10 +36,11 @@ namespace ShouldlyExtension.Aggregates
                 : inputs.OrderByDescending(orderBy).ToList();
             
             var lastItem = afterOrder.LastOrDefault();
-            lastItem.ShouldBeEquivalentTo(input);
+            lastItem.ShouldBeEquivalentTo(input,customErrorMessage);
         }
 
-        public static void ShouldBeEquivalentToFirstItem<TInput>(this IEnumerable<TInput> enumerable, TInput input)
+        public static void ShouldBeEquivalentToFirstItem<TInput>(this IEnumerable<TInput> enumerable, 
+            TInput input,string customErrorMessage = null)
         {
             var firstItem = enumerable.FirstOrDefault();
             if (firstItem == null)
@@ -46,14 +48,15 @@ namespace ShouldlyExtension.Aggregates
                 throw new NullReferenceException("list has not any items");
             }
 
-            firstItem.ShouldBeEquivalentTo(input);
+            firstItem.ShouldBeEquivalentTo(input, customErrorMessage);
         }
 
         public static void ShouldBeEquivalentToFirstItem<TInput, TKey>(
             this IEnumerable<TInput> enumerable,
             Func<TInput, TKey> orderBy,
             TInput input,
-            OrderType orderType = OrderType.Ascending)
+            OrderType orderType = OrderType.Ascending,
+            string customErrorMessage = null)
         {
             var inputs = enumerable as TInput[] ?? enumerable.ToArray();
             if (!inputs.Any())
@@ -66,8 +69,7 @@ namespace ShouldlyExtension.Aggregates
                 : inputs.OrderByDescending(orderBy).ToList();
 
             var firstItem = afterOrder.FirstOrDefault();
-            firstItem.ShouldBeEquivalentTo(input);
+            firstItem.ShouldBeEquivalentTo(input,customErrorMessage);
         }
-      
     }
 }
