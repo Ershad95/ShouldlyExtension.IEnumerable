@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Shouldly;
@@ -12,6 +13,7 @@ namespace ShouldlyExtension.Aggregates
             TInput input,
             string customErrorMessage = null)
         {
+            ThrowIfEmpty(enumerable);
             var lastItem = enumerable.LastOrDefault();
             if (lastItem == null)
             {
@@ -28,12 +30,9 @@ namespace ShouldlyExtension.Aggregates
             OrderType orderType = OrderType.Ascending,
             string customErrorMessage = null)
         {
+            ThrowIfEmpty(enumerable);
             var inputs = enumerable as TInput[] ?? enumerable.ToArray();
-            if (!inputs.Any())
-            {
-                throw new NullReferenceException("list has not any items");
-            }
-
+         
             var afterOrder = orderType == OrderType.Ascending
                 ? inputs.OrderBy(orderBy).ToList()
                 : inputs.OrderByDescending(orderBy).ToList();
@@ -45,6 +44,7 @@ namespace ShouldlyExtension.Aggregates
         public static void ShouldBeEquivalentToFirstItem<TInput>(this IEnumerable<TInput> enumerable,
             TInput input, string customErrorMessage = null)
         {
+            ThrowIfEmpty(enumerable);
             var firstItem = enumerable.FirstOrDefault();
             if (firstItem == null)
             {
@@ -62,17 +62,21 @@ namespace ShouldlyExtension.Aggregates
             string customErrorMessage = null)
         {
             var inputs = enumerable as TInput[] ?? enumerable.ToArray();
-            if (!inputs.Any())
-            {
-                throw new NullReferenceException("list has not any items");
-            }
+            ThrowIfEmpty(inputs);
 
             var afterOrder = orderType == OrderType.Ascending
                 ? inputs.OrderBy(orderBy).ToList()
                 : inputs.OrderByDescending(orderBy).ToList();
-
             var firstItem = afterOrder.FirstOrDefault();
             firstItem.ShouldBeEquivalentTo(input, customErrorMessage);
+        }
+
+        private static void ThrowIfEmpty(IEnumerable enumerable)
+        {
+            if (!enumerable.Cast<object>().Any())
+            {
+                throw new ArgumentException("The enumerable is empty.", nameof(enumerable));
+            }
         }
     }
 }
