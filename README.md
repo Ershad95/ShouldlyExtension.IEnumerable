@@ -62,3 +62,8 @@ with asce order :
     people.ShouldBeEquivalentToFirstItem(x => x.Name, new Person { Name = "Alice", Age = 25 }, OrderType.Ascending);
 </pre>
 
+### Contributing
+Contributions to ShouldlyExtension.Aggregate are welcome! If you find a bug or have an idea for a new feature, please open an issue and describe your problem or suggestion. If you would like to contribute code, please fork the repository and submit a pull request. All contributions should include tests to ensure that they work as expected.
+
+### License
+ShouldlyExtension.Aggregate is licensed under the MIT License.
