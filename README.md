@@ -1,4 +1,4 @@
-# ShouldlyExtension.Aggregate
+# ShouldlyExtension.IEnumerable
 The ShouldlyExtension.Aggregates library is a C# library that provides extension methods for the Shouldly assertion library. 
 It is designed to simplify the process of testing collections in unit tests.
 
