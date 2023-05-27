@@ -5,16 +5,16 @@ It is designed to simplify the process of testing collections in unit tests.
 The library contains four extension methods that allow you to test whether the first or last item in a collection is equivalent to a given object. These methods include:
 ##### ShouldBeEquivalentToLastItem: 
 This method asserts that the last item in the collection is equivalent to a given object.
-<hr />
+
 ##### ShouldBeEquivalentToLastItem<TInput, TKey>: 
 This method asserts that the last item in the collection, after being sorted by a key, is equivalent to a given object.
-<hr />
+
 ##### ShouldBeEquivalentToFirstItem: 
 This method asserts that the first item in the collection is equivalent to a given object.
-<hr />
+
 ##### ShouldBeEquivalentToFirstItem<TInput, TKey>:
 This method asserts that the first item in the collection, after being sorted by a key, is equivalent to a given object.
-<hr />
+
 In addition, these methods can raise a NullReferenceException if the collection is empty.
 Here's an example of how to use ShouldlyExtension.Aggregates:
 ##### note: It is compatible with Shouldly version 4.0.0 or higher.
