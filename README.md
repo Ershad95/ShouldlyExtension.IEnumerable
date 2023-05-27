@@ -1,5 +1,5 @@
 # ShouldlyExtension.IEnumerable
-The ShouldlyExtension.Aggregates library is a C# library that provides extension methods for the Shouldly assertion library. 
+The ShouldlyExtension.IEnumerable library is a C# library that provides extension methods for the Shouldly assertion library. 
 It is designed to simplify the process of testing collections in unit tests.
 
 The library contains four extension methods that allow you to test whether the first or last item in a collection is equivalent to a given object. These methods include:
@@ -16,7 +16,7 @@ This method asserts that the first item in the collection is equivalent to a giv
 This method asserts that the first item in the collection, after being sorted by a key, is equivalent to a given object.
 
 In addition, these methods can raise a NullReferenceException if the collection is empty.
-Here's an example of how to use ShouldlyExtension.Aggregates:
+Here's an example of how to use ShouldlyExtension.IEnumerable:
 ##### note: It is compatible with Shouldly version 4.0.0 or higher.
 make model for test with some properties:
 <pre>
@@ -67,7 +67,7 @@ with asce order :
 </pre>
 
 ### Contributing
-Contributions to ShouldlyExtension.Aggregate are welcome! If you find a bug or have an idea for a new feature, please open an issue and describe your problem or suggestion. If you would like to contribute code, please fork the repository and submit a pull request. All contributions should include tests to ensure that they work as expected.
+Contributions to ShouldlyExtension.IEnumerable are welcome! If you find a bug or have an idea for a new feature, please open an issue and describe your problem or suggestion. If you would like to contribute code, please fork the repository and submit a pull request. All contributions should include tests to ensure that they work as expected.
 
 ### License
-ShouldlyExtension.Aggregate is licensed under the MIT License.
+ShouldlyExtension.IEnumerable is licensed under the MIT License.
