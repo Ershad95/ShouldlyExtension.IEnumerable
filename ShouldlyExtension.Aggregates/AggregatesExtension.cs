@@ -73,7 +73,7 @@ namespace ShouldlyExtension.Aggregates
 
         private static void ThrowIfEmpty(IEnumerable enumerable)
         {
-            if (!enumerable.Cast<object>().Any())
+            if (!enumerable.Any())
             {
                 throw new ArgumentException("The enumerable is empty.", nameof(enumerable));
             }
