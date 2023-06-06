@@ -1,5 +1,5 @@
 # ShouldlyExtension.IEnumerable
-The ShouldlyExtension.IEnumerable library is a C# library that provides extension methods for the Shouldly assertion library. 
+The ShouldlyExtension.IEnumerable is a C# library that provides extension methods for the Shouldly assertion library. 
 It is designed to simplify the process of testing collections in unit tests.
 
 The library contains four extension methods that allow you to test whether the first or last item in a collection is equivalent to a given object. These methods include:
